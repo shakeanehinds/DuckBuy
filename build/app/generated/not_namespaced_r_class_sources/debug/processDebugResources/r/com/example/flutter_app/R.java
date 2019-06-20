@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package com.example.marjam;
+package com.example.flutter_app;
 
 public final class R {
   public static final class drawable {
