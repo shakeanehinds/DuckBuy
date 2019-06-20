@@ -1,9 +1,5 @@
 import 'package:marjam/model/item.dart';
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-//import 'package:marjam/main.dart';
-=======
->>>>>>> d3e482b1ae17ab9156868875fd9113f2e2241820
 
 class DetailPage extends StatelessWidget {
   final Item items;
