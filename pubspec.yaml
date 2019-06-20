@@ -41,9 +41,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-assets:
-  - assets/Moon.png
-  - assets/car.jpeg
+  assets:
+    - images/
 
 fonts:
     - family: Raleway

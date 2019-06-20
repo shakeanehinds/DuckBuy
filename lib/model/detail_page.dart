@@ -8,16 +8,18 @@ class DetailPage extends StatelessWidget {
   Widget build(BuildContext context) {
    
     
-    final topAppBar = AppBar(
+     final topAppBar = AppBar(
       elevation: 0.1,
       backgroundColor: Colors.white,
+      
       title: Text("Duck Buy"),
       actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.shopping_basket),
+        new IconButton(
+          icon: new Icon(Icons.shopping_basket),
           tooltip: "About Duck Buy",
           onPressed: () {},
-        )
+        ),
+       
       ],
     );
 

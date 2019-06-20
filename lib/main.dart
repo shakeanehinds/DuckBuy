@@ -109,13 +109,18 @@ class _ListPageState extends State<ListPage> {
     final topAppBar = AppBar(
       elevation: 0.1,
       backgroundColor: Colors.white,
-      title: Text(widget.title),
+      leading:  new IconButton(
+          icon: new Image.asset('images/logo.png', fit: BoxFit.contain, height: 32,),
+          onPressed: () {},
+        ),
+      title: Center(child: Text(widget.title)),
       actions: <Widget>[
-        IconButton(
-          icon: Icon(Icons.shopping_basket),
+        new IconButton(
+          icon: new Icon(Icons.shopping_basket),
           tooltip: "About Duck Buy",
           onPressed: () {},
-        )
+        ),
+       
       ],
     );
 
