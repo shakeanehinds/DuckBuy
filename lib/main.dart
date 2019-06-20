@@ -62,8 +62,8 @@ class _ListPageState extends State<ListPage> {
                   flex: 2,
                   child: Container(
                     
-                    child: Text(items.price.toString(),
-                        style: TextStyle(color: Colors.green[50])),
+                    child: Text( "\$" + items.price.toString(),
+                        style: TextStyle(color: Colors.green[400])),
                   )),
               Expanded(
                 flex: 4,
@@ -88,7 +88,7 @@ class _ListPageState extends State<ListPage> {
           margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
           
           child: Container(
-            decoration: BoxDecoration(color: Colors.blue[300]),
+            decoration: BoxDecoration(color: Colors.white),
             child: makeListTile(items),
             
           ),
