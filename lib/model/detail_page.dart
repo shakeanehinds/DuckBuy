@@ -1,6 +1,9 @@
 import 'package:marjam/model/item.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 //import 'package:marjam/main.dart';
+=======
+>>>>>>> d3e482b1ae17ab9156868875fd9113f2e2241820
 
 class DetailPage extends StatelessWidget {
   final Item items;
@@ -31,7 +34,9 @@ class DetailPage extends StatelessWidget {
           children: <Widget>[
             IconButton(
               icon: Icon(Icons.home, color: Colors.black),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
             IconButton(
               icon: Icon(Icons.mic_none, color: Colors.black),

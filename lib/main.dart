@@ -128,7 +128,16 @@ class _ListPageState extends State<ListPage> {
           children: <Widget>[
             IconButton(
               icon: Icon(Icons.home, color: Colors.black),
-              onPressed: () {},
+              onPressed: () {
+                /*
+                  *************************** NOTE *************************************
+                  This home button will not work with more than two items in stack, 
+                  to achive a proper home function routes will need to be created 
+                  and used in conjunction with the popuntil(context, predicate) function to 
+                  take the user to a specific route, in this case the main page
+                */
+                Navigator.canPop(context);  
+              },
             ),
             IconButton(
               icon: Icon(Icons.mic_none, color: Colors.black),
@@ -153,6 +162,33 @@ class _ListPageState extends State<ListPage> {
   }
 }
 
+
+/*
+
+TODO - Create APi Request from bestbuy
+
+API Request URL
+
+https://api.bestbuy.com/v1/products((categoryPath.id=abcat0502000))?apiKey=wgd9fp6cujtdn27wm9k8rtdg&sort=image.asc&show=image,inStoreAvailability,manufacturer,regularPrice,shortDescription,name&pageSize=5&format=json
+
+
+FORMAT RETURNED
+
+"products": [
+    {
+        "image": "https://img.bbystatic.com/BestBuy_US/images/products/4598/4598800_sa.jpg",
+        "inStoreAvailability": true,
+        "manufacturer": "Apple",
+        "regularPrice": 1299.99,
+        "shortDescription": "Intel Core m3 processor Intel HD Graphics 615Fast SSD storageUp to 10 hours of battery life&#178;802.11ac Wi-FiForce Touch Trackpad",
+        "name": "Apple - MacBook® - 12\" Display - Intel Core M3 - 8GB Memory - 256GB Flash Storage (Latest Model) - Space Gray"
+    }
+    {
+      ...
+    }
+  ]
+
+*/
 List getitems() {
   return [
     Item(
