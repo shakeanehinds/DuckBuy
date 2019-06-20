@@ -128,7 +128,9 @@ class _ListPageState extends State<ListPage> {
           children: <Widget>[
             IconButton(
               icon: Icon(Icons.home, color: Colors.black),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pop(context);
+              },
             ),
             IconButton(
               icon: Icon(Icons.mic_none, color: Colors.black),
