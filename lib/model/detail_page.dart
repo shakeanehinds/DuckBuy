@@ -1,6 +1,6 @@
 import 'package:marjam/model/item.dart';
 import 'package:flutter/material.dart';
-import 'package:marjam/main.dart';
+//import 'package:marjam/main.dart';
 
 class DetailPage extends StatelessWidget {
   final Item items;
@@ -50,7 +50,7 @@ class DetailPage extends StatelessWidget {
     return Scaffold(
       appBar: topAppBar,
       body: Center(child: Text(
-          "This " + items.title + " Costs " + items.price.toString() + " the descriptions says '" + items.content + "'"),),
+           items.title + " Costs " + items.price.toString() + " the descriptions says '" + items.content + "'"),),
       bottomNavigationBar: makeBottom,
     );
   }
