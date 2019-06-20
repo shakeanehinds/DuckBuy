@@ -51,7 +51,7 @@ class DetailPage extends StatelessWidget {
     return Scaffold(
       appBar: topAppBar,
       body: Center(child: Text(
-          "This " + items.title + " Costs " + items.price.toString() + " the descriptions says '" + items.content + "'"),),
+           items.title + " Costs " + items.price.toString() + " the descriptions says '" + items.content + "'"),),
       bottomNavigationBar: makeBottom,
     );
   }

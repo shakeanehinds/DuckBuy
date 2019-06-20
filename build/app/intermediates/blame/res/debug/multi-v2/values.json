@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "outputFile": "C:\\Users\\RohanStern\\Documents\\mobile-duckbuy-poc\\build\\app\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\android\\app\\src\\main\\res\\values\\styles.xml",
+                    "source": "C:\\Users\\RohanStern\\Documents\\mobile-duckbuy-poc\\android\\app\\src\\main\\res\\values\\styles.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
