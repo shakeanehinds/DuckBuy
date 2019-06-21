@@ -1,9 +1,8 @@
-import 'package:marjam/model/item.dart';
 import 'package:marjam/model/laptop.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatelessWidget {
-  //final Item items;
+ 
   final Laptop laptops;
   DetailPage({Key key, this.laptops}) : super(key: key);
   @override

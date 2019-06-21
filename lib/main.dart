@@ -1,7 +1,4 @@
-import 'dart:io';
-import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
-import 'package:marjam/model/item.dart';
 import 'package:marjam/model/detail_page.dart';
 import 'package:marjam/model/api_data.dart';
 import 'package:marjam/model/laptop.dart';
@@ -155,7 +152,7 @@ class _ListPageState extends State<ListPage> {
               icon: Icon(Icons.home, color: Colors.black),
               onPressed: () {
                 /*
-                TODO - ADD Navigation
+                TODO : ADD Navigation
                   *************************** NOTE *************************************
                   This home button will not work with more than two items in stack, 
                   to achive a proper home function routes will need to be created 
