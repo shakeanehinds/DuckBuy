@@ -64,28 +64,30 @@ class _ListPageState extends State<ListPage> {
             decoration: new BoxDecoration(
                 border: new Border(
                     right: new BorderSide(width: 1.0, color: Colors.black))),
-            child: Icon(Icons.shopping_basket, color: Colors.black),
+            //child: Icon(Icons.shopping_basket, color: Colors.black),
+            child: Image.network(laptops.image,)
           ),
 
-          title: Text(
+          title: Padding(padding: EdgeInsets.all(4.0), child: Text(
             laptops.name,
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-          ),
+            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 14, letterSpacing: 1.0),
+        
+          ),),
 
           subtitle: Row(
             children: <Widget>[
               Expanded(
+                  
                   flex: 2,
                   child: Container(
-                    
                     child: Text( "\$" + laptops.regularPrice.toString(),
-                        style: TextStyle(color: Colors.green[400])),
+                        style: TextStyle(color: Colors.lightGreen[900])),
                   )),
               Expanded(
                 flex: 4,
                 child: Padding(
                     padding: EdgeInsets.only(left: 10.0),
-                    child: Text(laptops.inStoreAvailability.toString(),
+                    child: Text(laptops.inStoreAvailability.toString() == 'true' ? 'In Stock' : 'Out of stock',
                         style: TextStyle(color: Colors.black))),
               )
             ],
@@ -184,7 +186,7 @@ class _ListPageState extends State<ListPage> {
     );
   }
 
-   @override
+  @override
   void initState() {
     super.initState();
     _getLaptops();
