@@ -65,7 +65,7 @@ class _ListPageState extends State<ListPage> {
                 border: new Border(
                     right: new BorderSide(width: 1.0, color: Colors.black))),
             //child: Icon(Icons.shopping_basket, color: Colors.black),
-            child: Image.network(laptops.image,)
+            child: Image.network(laptops.image, width: 70,)
           ),
 
           title: Padding(padding: EdgeInsets.all(4.0), child: Text(
@@ -87,7 +87,7 @@ class _ListPageState extends State<ListPage> {
                 flex: 4,
                 child: Padding(
                     padding: EdgeInsets.only(left: 10.0),
-                    child: Text(laptops.inStoreAvailability.toString() == 'true' ? 'In Stock' : 'Out of stock',
+                    child: Text(laptops.inStoreAvailability.toString() == 'true' ? 'In Stock': 'Out of stock',
                         style: TextStyle(color: Colors.black))),
               )
             ],
