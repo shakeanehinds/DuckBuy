@@ -1,9 +1,11 @@
 import 'package:marjam/model/item.dart';
+import 'package:marjam/model/laptop.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatelessWidget {
-  final Item items;
-  DetailPage({Key key, this.items}) : super(key: key);
+  //final Item items;
+  final Laptop laptops;
+  DetailPage({Key key, this.laptops}) : super(key: key);
   @override
   Widget build(BuildContext context) {
    
@@ -53,7 +55,7 @@ class DetailPage extends StatelessWidget {
     return Scaffold(
       appBar: topAppBar,
       body: Center(child: Text(
-           items.title + " Costs \$" + items.price.toString() + " the descriptions says '" + items.content + "'"),),
+           laptops.name + " Costs \$" + laptops.regularPrice.toString() + " the descriptions says '" + laptops.shortDescription + "'"),),
       bottomNavigationBar: makeBottom,
     );
   }

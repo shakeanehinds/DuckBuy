@@ -1,6 +1,11 @@
+import 'dart:io';
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:marjam/model/item.dart';
 import 'package:marjam/model/detail_page.dart';
+import 'package:marjam/model/api_data.dart';
+import 'package:marjam/model/laptop.dart';
+import 'dart:convert';
 
 void main() => runApp(new MyApp());
 
@@ -9,6 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Duck Buy',
       theme: new ThemeData(primaryColor: Colors.white),
       home: new ListPage(title: 'Duck Buy'),
@@ -28,18 +34,31 @@ class ListPage extends StatefulWidget {
 
 
 class _ListPageState extends State<ListPage> {
-  List items;
+  
+  
+  var laptops = new List<Laptop>();
+
+  _getLaptops(){
+    API.getLaptops().then((response){
+      setState(() {
+       var resBody = json.decode(response.body); 
+       Iterable list = resBody["products"];
+       laptops = list.map((model) => Laptop.fromJson(model)).toList();
+      });
+    });
+  }
+
   @override
-  void initState() {
-    items = getitems();
-    super.initState();
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     
 
-    ListTile makeListTile(Item items) => ListTile(
+    ListTile makeListTile(Laptop laptops) => ListTile(
           contentPadding:
               EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
 
@@ -52,7 +71,7 @@ class _ListPageState extends State<ListPage> {
           ),
 
           title: Text(
-            items.title,
+            laptops.name,
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
           ),
 
@@ -62,14 +81,14 @@ class _ListPageState extends State<ListPage> {
                   flex: 2,
                   child: Container(
                     
-                    child: Text( "\$" + items.price.toString(),
+                    child: Text( "\$" + laptops.regularPrice.toString(),
                         style: TextStyle(color: Colors.green[400])),
                   )),
               Expanded(
                 flex: 4,
                 child: Padding(
                     padding: EdgeInsets.only(left: 10.0),
-                    child: Text(items.avail,
+                    child: Text(laptops.inStoreAvailability.toString(),
                         style: TextStyle(color: Colors.black))),
               )
             ],
@@ -79,17 +98,17 @@ class _ListPageState extends State<ListPage> {
               Icon(Icons.keyboard_arrow_right, color: Colors.black, size: 30.0),
           onTap: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => DetailPage(items: items)));
+                context, MaterialPageRoute(builder: (context) => DetailPage(laptops: laptops)));
           },
         );
 
-    Card makeCard(Item items) => Card(
+    Card makeCard(Laptop laptops) => Card(
           elevation: 8.0,
           margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
           
           child: Container(
             decoration: BoxDecoration(color: Colors.white),
-            child: makeListTile(items),
+            child: makeListTile(laptops),
             
           ),
           
@@ -99,9 +118,9 @@ class _ListPageState extends State<ListPage> {
       child: ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
-        itemCount: items.length,
+        itemCount: laptops.length,
         itemBuilder: (BuildContext context, int index) {
-          return makeCard(items[index]);
+          return makeCard(laptops[index]);
         },
       ),
     );
@@ -110,13 +129,14 @@ class _ListPageState extends State<ListPage> {
       elevation: 0.1,
       backgroundColor: Colors.white,
       leading:  new IconButton(
+        
           icon: new Image.asset('images/logo.png', fit: BoxFit.contain, height: 32,),
           onPressed: () {},
         ),
       title: Center(child: Text(widget.title)),
       actions: <Widget>[
         new IconButton(
-          icon: new Icon(Icons.shopping_basket),
+          icon: new Icon(Icons.account_circle),
           tooltip: "About Duck Buy",
           onPressed: () {},
         ),
@@ -150,7 +170,7 @@ class _ListPageState extends State<ListPage> {
               onPressed: () {},
             ),
             IconButton(
-              icon: Icon(Icons.account_circle, color: Colors.black),
+              icon: Icon(Icons.shopping_basket, color: Colors.black),
               onPressed: () {},
             ),
             
@@ -166,73 +186,12 @@ class _ListPageState extends State<ListPage> {
       bottomNavigationBar: makeBottom,
     );
   }
-}
 
-
-/*
-
-TODO - Create APi Request from bestbuy
-
-API Request URL
-
-https://api.bestbuy.com/v1/products((categoryPath.id=abcat0502000))?apiKey=wgd9fp6cujtdn27wm9k8rtdg&sort=image.asc&show=image,inStoreAvailability,manufacturer,regularPrice,shortDescription,name&pageSize=5&format=json
-
-
-FORMAT RETURNED
-
-"products": [
-    {
-        "image": "https://img.bbystatic.com/BestBuy_US/images/products/4598/4598800_sa.jpg",
-        "inStoreAvailability": true,
-        "manufacturer": "Apple",
-        "regularPrice": 1299.99,
-        "shortDescription": "Intel Core m3 processor Intel HD Graphics 615Fast SSD storageUp to 10 hours of battery life&#178;802.11ac Wi-FiForce Touch Trackpad",
-        "name": "Apple - MacBook® - 12\" Display - Intel Core M3 - 8GB Memory - 256GB Flash Storage (Latest Model) - Space Gray"
-    }
-    {
-      ...
-    }
-  ]
-
-*/
-List getitems() {
-  return [
-    Item(
-        title: "Razer Blade",
-        avail: "In Stock",
-        price: 2500,
-        content:
-            "I'm the best gaming laptop ever"),
-    Item(
-        title: "Lenovo X1",
-        avail: "In Stock",
-        price: 1500,
-        content:
-            "I'm the best productivity laptop"),
-    Item(
-        title: "MacBook",
-        avail: "Out of stock",
-        price: 5000,
-        content:
-            "lol i cost five grand"),
-    Item(
-        title: "XPS",
-        avail: "Out of stock",
-        price: 3000,
-        content:
-            "Dell's best creation"),
-    Item(
-        title: "Omen",
-        avail: "In Stock",
-        price: 3500,
-        content:
-            "I used to be the sh*t"),
-    Item(
-        title: "Alien Ware",
-        avail: "In Stock",
-        price: 2500,
-        content:
-            "Heavy asf"),
-  ];
+   @override
+  void initState() {
+    super.initState();
+    _getLaptops();
+    
+  }
 }
 
