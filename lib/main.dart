@@ -69,7 +69,11 @@ class _ListPageState extends State<ListPage> {
           ),
 
           title: Padding(padding: EdgeInsets.all(4.0), child: Text(
-            laptops.name,
+
+            /* TODO: Use regex to extract proper product name and send to view*/
+            //laptops.name.splitMapJoin(pattern),
+            laptops.name.split(" ")[0],
+            //"Laptop Name Here",
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 14, letterSpacing: 1.0),
         
           ),),
@@ -108,6 +112,7 @@ class _ListPageState extends State<ListPage> {
           child: Container(
             decoration: BoxDecoration(color: Colors.white),
             child: makeListTile(laptops),
+            
             
           ),
           
