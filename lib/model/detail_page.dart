@@ -24,6 +24,37 @@ class DetailPage extends StatelessWidget {
       ],
     );
 
+    final makeBody = Container(
+    
+      child: Column(
+        
+        children: <Widget>[
+          
+          Expanded(
+            flex: 8,
+            child: Container(
+                width: MediaQuery.of(context).size.width,
+                height: 300,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.fitWidth,
+                    image: NetworkImage(laptops.image),
+                   ),
+                  ),
+                  ), 
+          ),
+          
+         Expanded( flex: 6,
+         child:
+          Container(
+            padding: EdgeInsets.all(20),
+            
+            child: Center(child: Text(laptops.shortDescription, style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400, fontSize: 15, letterSpacing: 1.0),),),
+          ))
+        ],
+      ),
+    );
+
     final makeBottom = Container(
       height: 55.0,
       child: BottomAppBar(
@@ -53,8 +84,7 @@ class DetailPage extends StatelessWidget {
 
     return Scaffold(
       appBar: topAppBar,
-      body: Center(child: Text(
-           laptops.name + " Costs \$" + laptops.regularPrice.toString() + " the descriptions says '" + laptops.shortDescription + "'"),),
+      body: makeBody,
       bottomNavigationBar: makeBottom,
     );
   }
