@@ -58,14 +58,14 @@ class _ListPageState extends State<ListPage> {
     ListTile makeListTile(Laptop laptops) => ListTile(
           contentPadding:
               EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-
+          
           leading: Container(
             padding: EdgeInsets.only(right: 12.0),
             decoration: new BoxDecoration(
                 border: new Border(
                     right: new BorderSide(width: 1.0, color: Colors.black))),
             //child: Icon(Icons.shopping_basket, color: Colors.black),
-            child: Image.network(laptops.image, width: 70,)
+            child: Image.network(laptops.image != null ? laptops.image: "https://cdn0.centrecom.com.au/images/upload/0058832_0.jpeg" , width: 70,)
           ),
 
           title: Padding(padding: EdgeInsets.all(4.0), child: Text(
@@ -79,6 +79,7 @@ class _ListPageState extends State<ListPage> {
           ),),
 
           subtitle: Row(
+            
             children: <Widget>[
               Expanded(
                   
@@ -98,7 +99,9 @@ class _ListPageState extends State<ListPage> {
           ),
 
           trailing:
-              Icon(Icons.keyboard_arrow_right, color: Colors.black, size: 30.0),
+          
+              Icon(Icons.keyboard_arrow_right, color: Colors.black, size: 30.0, ),
+              
           onTap: () {
             Navigator.push(
                 context, MaterialPageRoute(builder: (context) => DetailPage(laptops: laptops)));

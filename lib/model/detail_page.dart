@@ -41,7 +41,7 @@ class DetailPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   image: DecorationImage(
                     fit: BoxFit.fitWidth,
-                    image: NetworkImage(laptops.image),
+                    image: NetworkImage(laptops.image != null ? laptops.image: "https://cdn0.centrecom.com.au/images/upload/0058832_0.jpeg"),
                    ),
                   ),
                   ), 
