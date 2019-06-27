@@ -1,15 +1,16 @@
+import 'package:flutter/widgets.dart';
 import 'package:marjam/model/laptop.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatelessWidget {
- 
+  
   final Laptop laptops;
   DetailPage({Key key, this.laptops}) : super(key: key);
   @override
   Widget build(BuildContext context) {
    
     
-     final topAppBar = AppBar(
+    final topAppBar = AppBar(
       elevation: 0.1,
       backgroundColor: Colors.white,
       
@@ -24,10 +25,12 @@ class DetailPage extends StatelessWidget {
       ],
     );
 
-    final makeBody = Container(
-    
-      child: Column(
+    bool saved = true;
+        final makeBody = Container(
         
+          child: Column(
+            
+            
         children: <Widget>[
           
           Expanded(
@@ -44,13 +47,44 @@ class DetailPage extends StatelessWidget {
                   ), 
           ),
           
-         Expanded( flex: 6,
+         Expanded( flex: 4,
          child:
           Container(
             padding: EdgeInsets.all(20),
             
             child: Center(child: Text(laptops.shortDescription, style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400, fontSize: 15, letterSpacing: 1.0),),),
-          ))
+          )),
+
+         Expanded( 
+          flex: 2,
+          child:Row(
+            
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+
+             
+             IconButton(
+              
+              icon: Icon(saved ? Icons.favorite : Icons.favorite_border,
+              color: saved? Colors.red: null,),
+              onPressed: () {
+                  saved ? saved = false: saved =  true;            
+              },),
+           
+
+          MaterialButton(
+            child: Text("Buy Now", style: TextStyle(fontSize: 16),),
+            color: Colors.greenAccent,
+            shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10)
+              ),
+            elevation: 0.8,
+            onPressed: () {
+                             
+              },
+          )
+            ],
+          )),
         ],
       ),
     );

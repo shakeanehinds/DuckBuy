@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Duck Buy',
-      theme: new ThemeData(primaryColor: Colors.white),
+      theme: new ThemeData(primaryColor: Colors.white, fontFamily: "Montserrat"),
       home: new ListPage(title: 'Duck Buy'),
     );
   }
@@ -72,7 +72,7 @@ class _ListPageState extends State<ListPage> {
 
             /* TODO: Use regex to extract proper product name and send to view*/
             //laptops.name.splitMapJoin(pattern),
-            laptops.name.split(" ")[0],
+            laptops.name.substring(0, 46) + "...",
             //"Laptop Name Here",
             style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 14, letterSpacing: 1.0),
         

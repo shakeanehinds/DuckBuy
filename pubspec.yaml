@@ -50,6 +50,10 @@ fonts:
         - asset: fonts/Raleway-Regular.ttf
         - asset: fonts/Raleway-Thin.ttf
           style: normal
+    - family: Montserrat
+      fonts:
+        - asset: fonts/Montserrat-Regular.ttf
+        - asset: fonts/Montserrat-Thin.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
