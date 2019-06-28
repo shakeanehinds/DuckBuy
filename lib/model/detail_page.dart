@@ -51,7 +51,7 @@ class DetailPage extends StatelessWidget {
          child:
           Container(
             padding: EdgeInsets.all(20),
-            
+            // TODO: Laptop description will overflow container if it is too long
             child: Center(child: Text(laptops.shortDescription, style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400, fontSize: 15, letterSpacing: 1.0),),),
           )),
 
