@@ -22,8 +22,8 @@
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:debuggable="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="flutter_app" >
+        android:icon="@mipmap/logo"
+        android:label="Duck Buy" >
         <activity
             android:name="com.example.flutter_app.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"

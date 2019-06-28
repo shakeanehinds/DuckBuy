@@ -25,9 +25,9 @@ INJECTED from C:\Users\ShakeaneHinds\Desktop\Flutter Compare\marjam\android\app\
 application
 ADDED from C:\Users\ShakeaneHinds\Desktop\Flutter Compare\marjam\android\app\src\main\AndroidManifest.xml:9:5-32:19
 	android:label
-		ADDED from C:\Users\ShakeaneHinds\Desktop\Flutter Compare\marjam\android\app\src\main\AndroidManifest.xml:11:9-36
+		ADDED from C:\Users\ShakeaneHinds\Desktop\Flutter Compare\marjam\android\app\src\main\AndroidManifest.xml:11:9-33
 	android:icon
-		ADDED from C:\Users\ShakeaneHinds\Desktop\Flutter Compare\marjam\android\app\src\main\AndroidManifest.xml:12:9-43
+		ADDED from C:\Users\ShakeaneHinds\Desktop\Flutter Compare\marjam\android\app\src\main\AndroidManifest.xml:12:9-36
 	android:name
 		ADDED from C:\Users\ShakeaneHinds\Desktop\Flutter Compare\marjam\android\app\src\main\AndroidManifest.xml:10:9-57
 activity#com.example.flutter_app.MainActivity

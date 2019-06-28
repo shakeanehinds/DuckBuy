@@ -4,14 +4,6 @@
         "source": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\android\\app\\src\\main\\res\\mipmap-mdpi\\logopng.png"
     },
     {
-        "merged": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-mdpi_logotext.png.flat",
-        "source": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\android\\app\\src\\main\\res\\mipmap-mdpi\\logotext.png"
-    },
-    {
-        "merged": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\build\\app\\intermediates\\res\\merged\\debug\\drawable_launch_background.xml.flat",
-        "source": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\android\\app\\src\\main\\res\\drawable\\launch_background.xml"
-    },
-    {
         "merged": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_moon.png.flat",
         "source": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\moon.png"
     },
@@ -20,24 +12,36 @@
         "source": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\android\\app\\src\\main\\res\\mipmap-hdpi\\ic_launcher.png"
     },
     {
-        "merged": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
-    },
-    {
         "merged": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_splash.jpg.flat",
         "source": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\splash.jpg"
     },
     {
-        "merged": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-mdpi_logotext.png.flat",
+        "source": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\android\\app\\src\\main\\res\\mipmap-mdpi\\logotext.png"
+    },
+    {
+        "merged": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\build\\app\\intermediates\\res\\merged\\debug\\drawable_launch_background.xml.flat",
+        "source": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\android\\app\\src\\main\\res\\drawable\\launch_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-hdpi_logo.png.flat",
+        "source": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\android\\app\\src\\main\\res\\mipmap-hdpi\\logo.png"
+    },
+    {
+        "merged": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-mdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\android\\app\\src\\main\\res\\mipmap-mdpi\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-mdpi_logo.png.flat",
         "source": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\android\\app\\src\\main\\res\\mipmap-mdpi\\logo.png"
     },
     {
-        "merged": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xhdpi_ic_launcher.png.flat",
-        "source": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\android\\app\\src\\main\\res\\mipmap-xhdpi\\ic_launcher.png"
+        "merged": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\android\\app\\src\\main\\res\\mipmap-xxxhdpi\\ic_launcher.png"
     },
     {
         "merged": "C:\\Users\\ShakeaneHinds\\Desktop\\Flutter Compare\\marjam\\build\\app\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_ic_launcher.png.flat",
