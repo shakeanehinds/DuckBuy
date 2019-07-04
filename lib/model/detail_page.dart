@@ -14,7 +14,7 @@ class DetailPage extends StatelessWidget {
       elevation: 0.1,
       backgroundColor: Colors.white,
       
-      title: Text("Duck Buy"),
+      title: Text(laptops.name),
       actions: <Widget>[
         new IconButton(
           icon: new Icon(Icons.shopping_basket),

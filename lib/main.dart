@@ -3,6 +3,7 @@ import 'package:marjam/model/detail_page.dart';
 import 'package:marjam/model/api_data.dart';
 import 'package:marjam/model/laptop.dart';
 import 'dart:convert';
+import 'package:flutter/services.dart';
 
 void main() => runApp(new MyApp());
 
@@ -10,10 +11,15 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+          statusBarColor: Color.fromRGBO(255, 198, 33, 1),
+          statusBarIconBrightness: Brightness.light),
+    );
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Duck Buy',
-      theme: new ThemeData(primaryColor: Colors.white, fontFamily: "Montserrat"),
+      theme: new ThemeData(primaryColor: Colors.white, fontFamily: "Montserrat", ),
       home: new ListPage(title: 'Duck Buy'),
     );
   }
