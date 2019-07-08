@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:marjam/model/detail_page.dart';
-import 'package:marjam/model/api_data.dart';
+import 'package:marjam/views/detail_page.dart';
+import 'package:marjam/services/api_data.dart';
 import 'package:marjam/model/laptop.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart';

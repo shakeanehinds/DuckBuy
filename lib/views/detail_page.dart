@@ -71,6 +71,13 @@ class DetailPage extends StatelessWidget {
                   saved ? saved = false: saved =  true;            
               },),
            
+           IconButton(
+              
+              icon: Icon(Icons.location_on,
+              color:Colors.black),
+              onPressed: () {
+                  saved ? saved = false: saved =  true;            
+              },),
 
           MaterialButton(
             child: Text("Buy Now", style: TextStyle(fontSize: 16),),
