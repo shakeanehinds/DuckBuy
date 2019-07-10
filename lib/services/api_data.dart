@@ -10,5 +10,12 @@ class API{
     return http.get(url);
     
   }
+
+  static Future getLaptopssearch(String term){
+    var url = "https://api.bestbuy.com/v1/products((search="+term+ "))?apiKey=wgd9fp6cujtdn27wm9k8rtdg&sort=regularPrice.dsc&show=image,name,regularPrice,sku,shortDescription,inStoreAvailability,manufacturer&pageSize=30&format=json";
+    return http.get(url);
+    
+  }
+
 }
 

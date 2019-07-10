@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:marjam/model/laptop.dart';
 import 'package:flutter/material.dart';
+import 'package:marjam/views/map_page.dart';
 
 class DetailPage extends StatelessWidget {
   
@@ -11,18 +12,16 @@ class DetailPage extends StatelessWidget {
    
     
     final topAppBar = AppBar(
+      leading: new IconButton(
+        icon: new Icon(Icons.arrow_back, color: Colors.orange[300]),
+        onPressed: () => Navigator.of(context).pop(),
+      ),
+      
       elevation: 0.1,
       backgroundColor: Colors.white,
       
       title: Text(laptops.name),
-      actions: <Widget>[
-        new IconButton(
-          icon: new Icon(Icons.shopping_basket),
-          tooltip: "About Duck Buy",
-          onPressed: () {},
-        ),
-       
-      ],
+      
     );
 
     bool saved = true;
@@ -36,11 +35,13 @@ class DetailPage extends StatelessWidget {
           Expanded(
             flex: 8,
             child: Container(
+                padding: EdgeInsets.all(50),
                 width: MediaQuery.of(context).size.width,
                 height: 300,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    fit: BoxFit.fitWidth,
+                    
+                    fit: BoxFit.contain,
                     image: NetworkImage(laptops.image != null ? laptops.image: "https://cdn0.centrecom.com.au/images/upload/0058832_0.jpeg"),
                    ),
                   ),
@@ -76,20 +77,16 @@ class DetailPage extends StatelessWidget {
               icon: Icon(Icons.location_on,
               color:Colors.black),
               onPressed: () {
-                  saved ? saved = false: saved =  true;            
+                  Navigator.push(
+                context, MaterialPageRoute(builder: (context) => MapsPage(laptops: laptops)));            
               },),
 
-          MaterialButton(
-            child: Text("Buy Now", style: TextStyle(fontSize: 16),),
-            color: Colors.greenAccent,
-            shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10)
-              ),
-            elevation: 0.8,
-            onPressed: () {
-                             
-              },
-          )
+          IconButton(
+              
+              icon: Icon(Icons.add_shopping_cart,
+              color:Colors.black),
+              onPressed: () {        
+              },),
             ],
           )),
         ],
@@ -126,7 +123,7 @@ class DetailPage extends StatelessWidget {
     return Scaffold(
       appBar: topAppBar,
       body: makeBody,
-      bottomNavigationBar: makeBottom,
+      //bottomNavigationBar: makeBottom,
     );
   }
 }

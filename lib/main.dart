@@ -19,7 +19,10 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Duck Buy',
-      theme: new ThemeData(primaryColor: Colors.white, fontFamily: "Montserrat", ),
+      theme: new ThemeData(
+        primaryColor: Colors.white,
+        fontFamily: "Montserrat",
+      ),
       home: new ListPage(title: 'Duck Buy'),
     );
   }
@@ -34,101 +37,124 @@ class ListPage extends StatefulWidget {
   _ListPageState createState() => _ListPageState();
 }
 
-
-
 class _ListPageState extends State<ListPage> {
-  
-  
+  final TextEditingController _filter = new TextEditingController();
+  String _searchText = "";
+  Icon _searchIcon = new Icon(Icons.search);
   var laptops = new List<Laptop>();
+  Widget _appBarTitle = new Text('Duck Buy');
 
-  _getLaptops(){
-    API.getLaptops().then((response){
-      setState(() {
-       var resBody = json.decode(response.body); 
-       Iterable list = resBody["products"];
-       laptops = list.map((model) => Laptop.fromJson(model)).toList();
-      });
+  _ListPageState() {
+    _filter.addListener(() {
+      if (_filter.text.isEmpty) {
+        setState(() {
+          _searchText = "";
+          //filteredNames = names;
+        });
+      } else {
+        setState(() {
+          _searchText = _filter.text;
+        });
+      }
     });
   }
 
   @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    
+    final _searchfield = TextField(
+      controller: _filter,
+      decoration: new InputDecoration(
+          prefixIcon: new Icon(Icons.search), hintText: 'Search...'),
+      onSubmitted: _getLaptopsSearch(_filter.text),
+    );
+
+    void _searchPressed() {
+      setState(() {
+        if (this._searchIcon.icon == Icons.search) {
+          this._searchIcon = new Icon(Icons.close);
+          this._appBarTitle = _searchfield;
+        } else {
+          this._searchIcon = new Icon(Icons.search);
+          this._appBarTitle = new Text('Duck Buy');
+          //filteredNames = names;
+          _filter.clear();
+        }
+      });
+    }
 
     ListTile makeListTile(Laptop laptops) => ListTile(
           contentPadding:
               EdgeInsets.symmetric(horizontal: 20.0, vertical: 10.0),
-          
           leading: Container(
-            padding: EdgeInsets.only(right: 12.0),
-            decoration: new BoxDecoration(
-                border: new Border(
-                    right: new BorderSide(width: 1.0, color: Colors.black))),
-            //child: Icon(Icons.shopping_basket, color: Colors.black),
-            child: Image.network(laptops.image != null ? laptops.image: "https://cdn0.centrecom.com.au/images/upload/0058832_0.jpeg" , width: 70,)
+              padding: EdgeInsets.only(right: 12.0),
+              decoration: new BoxDecoration(
+                  border: new Border(
+                      right: new BorderSide(width: 1.0, color: Colors.black))),
+              //child: Icon(Icons.shopping_basket, color: Colors.black),
+              child: Image.network(
+                laptops.image != null
+                    ? laptops.image
+                    : "https://cdn0.centrecom.com.au/images/upload/0058832_0.jpeg",
+                width: 70,
+              )),
+          title: Padding(
+            padding: EdgeInsets.all(4.0),
+            child: Text(
+              /* TODO: Use regex to extract proper product name and send to view*/
+              //laptops.name.splitMapJoin(pattern),
+              laptops.name.substring(0, (laptops.name.length / 2).floor()) +
+                  "...",
+              //"Laptop Name Here",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w600,
+                  fontSize: 14,
+                  letterSpacing: 1.0),
+            ),
           ),
-
-          title: Padding(padding: EdgeInsets.all(4.0), child: Text(
-
-            /* TODO: Use regex to extract proper product name and send to view*/
-            //laptops.name.splitMapJoin(pattern),
-            laptops.name.substring(0, 46) + "...",
-            //"Laptop Name Here",
-            style: TextStyle(color: Colors.black, fontWeight: FontWeight.w600, fontSize: 14, letterSpacing: 1.0),
-        
-          ),),
-
           subtitle: Row(
-            
             children: <Widget>[
               Expanded(
-                  
                   flex: 2,
                   child: Container(
-                    child: Text( "\$" + laptops.regularPrice.toString(),
+                    child: Text("\$" + laptops.regularPrice.toString(),
                         style: TextStyle(color: Colors.lightGreen[900])),
                   )),
               Expanded(
                 flex: 4,
                 child: Padding(
                     padding: EdgeInsets.only(left: 10.0),
-                    child: Text(laptops.inStoreAvailability.toString() == 'true' ? 'In Stock': 'Out of stock',
+                    child: Text(
+                        laptops.inStoreAvailability.toString() == 'true'
+                            ? 'In Stock'
+                            : 'Out of stock',
                         style: TextStyle(color: Colors.black))),
               )
             ],
           ),
-
-          trailing:
-          
-              Icon(Icons.keyboard_arrow_right, color: Colors.black, size: 30.0, ),
-              
+          trailing: Icon(
+            Icons.keyboard_arrow_right,
+            color: Colors.black,
+            size: 30.0,
+          ),
           onTap: () {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => DetailPage(laptops: laptops)));
+                context,
+                MaterialPageRoute(
+                    builder: (context) => DetailPage(laptops: laptops)));
           },
         );
 
     Card makeCard(Laptop laptops) => Card(
           elevation: 8.0,
           margin: new EdgeInsets.symmetric(horizontal: 10.0, vertical: 6.0),
-          
           child: Container(
             decoration: BoxDecoration(color: Colors.white),
             child: makeListTile(laptops),
-            
-            
           ),
-          
         );
 
     final makeBody = Container(
-      
       child: ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
@@ -142,19 +168,23 @@ class _ListPageState extends State<ListPage> {
     final topAppBar = AppBar(
       elevation: 0.1,
       backgroundColor: Colors.white,
-      leading:  new IconButton(
-        
-          icon: new Image.asset('images/logo.png', fit: BoxFit.contain, height: 32,),
-          onPressed: () {},
+      leading: new IconButton(
+        icon: new Image.asset(
+          'images/logo.png',
+          fit: BoxFit.contain,
+          height: 32,
         ),
-      title: Center(child: Text(widget.title)),
+        onPressed: () {},
+      ),
+      title: Center(child: _appBarTitle),
       actions: <Widget>[
         new IconButton(
-          icon: new Icon(Icons.account_circle),
-          tooltip: "About Duck Buy",
-          onPressed: () {},
+          icon: _searchIcon,
+          tooltip: "Search for products",
+          onPressed: () {
+            _searchPressed();
+          },
         ),
-       
       ],
     );
 
@@ -176,7 +206,7 @@ class _ListPageState extends State<ListPage> {
                   and used in conjunction with the popuntil(context, predicate) function to 
                   take the user to a specific route, in this case the main page
                 */
-                Navigator.canPop(context);  
+                Navigator.canPop(context);
               },
             ),
             IconButton(
@@ -187,12 +217,11 @@ class _ListPageState extends State<ListPage> {
               icon: Icon(Icons.shopping_basket, color: Colors.black),
               onPressed: () {},
             ),
-            
           ],
         ),
       ),
     );
-    
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: topAppBar,
@@ -201,11 +230,35 @@ class _ListPageState extends State<ListPage> {
     );
   }
 
+  _getLaptops() {
+    API.getLaptops().then((response) {
+      setState(() {
+        var resBody = json.decode(response.body);
+        Iterable list = resBody["products"];
+        laptops = list.map((model) => Laptop.fromJson(model)).toList();
+      });
+    });
+  }
+
+  _getLaptopsSearch(String term) {
+    API.getLaptopssearch(term).then((response) {
+      setState(() {
+        var resBody = json.decode(response.body);
+        Iterable list = resBody["products"];
+        laptops = list.map((model) => Laptop.fromJson(model)).toList();
+      });
+    });
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
   @override
   void initState() {
     super.initState();
     _getLaptops();
-    
   }
 }
-
